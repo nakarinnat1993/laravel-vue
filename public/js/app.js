@@ -2132,6 +2132,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
         _this.users = response.data;
       });
+    },
+    deleteUser: function deleteUser(id, index) {
+      var _this2 = this;
+
+      console.log(id);
+      axios["delete"]("api/users/" + id).then(function (response) {
+        console.log(response);
+
+        _this2.users.splice(index, 1);
+      });
     }
   },
   data: function data() {
@@ -37997,8 +38007,8 @@ var render = function() {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.users, function(user) {
-            return _c("tr", { key: user.id }, [
+          _vm._l(_vm.users, function(user, index) {
+            return _c("tr", { key: index }, [
               _c("td", [_vm._v(_vm._s(user.id))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(user.name))]),
@@ -38016,7 +38026,20 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(1, true)
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteUser(user.id, index)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
             ])
           }),
           0
@@ -38041,16 +38064,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Edit")]),
         _vm._v(" "),
         _c("th", [_vm._v("Delete")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { staticClass: "btn btn-danger", attrs: { href: "" } }, [
-        _vm._v("Delete")
       ])
     ])
   }

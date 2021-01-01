@@ -15,12 +15,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="user in users" :key="user.id">
+                    <tr v-for="(user,index) in users" :key="index">
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.city }}</td>
                         <td><a :href="'/users/'+user.id+'/edit'" class="btn btn-warning">Edit</a></td>
-                        <td><a href="" class="btn btn-danger">Delete</a></td>
+                        <td><button class="btn btn-danger" @click="deleteUser(user.id,index)">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -40,6 +40,13 @@ export default {
             axios.get("api/users").then(response => {
                 console.log(response);
                 this.users = response.data;
+            });
+        },
+        deleteUser(id,index){
+            console.log(id);
+            axios.delete("api/users/"+id).then(response => {
+                console.log(response);
+                this.users.splice(index,1);
             });
         }
     },
