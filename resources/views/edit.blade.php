@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel | User</title>
+        <title>Laravel | Edit</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -17,9 +17,9 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content mt-5" id="app">
-                <user-component></user-component>
+                <edit-component id="{{ $id }}"></edit-component>
             </div>
         </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

@@ -19,7 +19,7 @@
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.city }}</td>
-                        <td><a href="" class="btn btn-warning">Edit</a></td>
+                        <td><a :href="'/users/'+user.id+'/edit'" class="btn btn-warning">Edit</a></td>
                         <td><a href="" class="btn btn-danger">Delete</a></td>
                     </tr>
                 </tbody>
