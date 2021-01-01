@@ -1,8 +1,9 @@
 <template>
     <div class="user">
-        <h1>This is User.vue</h1>
+        <!-- <h1>This is User.vue</h1> -->
         <div class="container">
             <h2 class="text-center">แสดงข้อมูล</h2>
+            <a href="users/create" class="btn btn-primary">Create</a>
             <table class="table table-bordered">
                 <thead>
                     <tr>

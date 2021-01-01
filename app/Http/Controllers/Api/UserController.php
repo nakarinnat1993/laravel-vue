@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -38,7 +38,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            'name' => $request->get('name'),
+            'city' => $request->city,
+        ]);
+
+        return response()->json($user);
+
     }
 
     /**
